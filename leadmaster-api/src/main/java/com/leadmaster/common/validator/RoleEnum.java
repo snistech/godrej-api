@@ -5,7 +5,8 @@ import java.util.Arrays;
 public enum RoleEnum {
 
 	SUPER_ADMIN("SuperAdmin"), ADMIN("Admin"), LEVEL_3("LevelThree"), LEVEL_2("LevelTwo"), LEVEL_1("LevelOne"),
-	MARKETING_EXECUTIVE("MarketingExecutive"), SUPER_HR("SuperHR"), HR("HR");
+	MARKETING_EXECUTIVE("MarketingExecutive"), SUPER_HR("SuperHR"), HR("HR"), TeamLeader("TeamLeader"),
+	TeleCaller("TeleCaller");
 
 	private String role;
 
