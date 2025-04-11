@@ -2,6 +2,7 @@ package com.leadmaster.service.serviceimpl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -166,29 +167,32 @@ public class LeadServiceImpl implements LeadService {
 		if (null != leadDTO.getTenantType())
 			dbLeadDTO.setTenantType(leadDTO.getTenantType());
 
-		if (leadDTO.getLocation() != null && !leadDTO.getLocation().equals(lead.getLocation())) {
+		if (null != leadDTO.getLocation())
 			dbLeadDTO.setLocation(leadDTO.getLocation());
 
-			// Check if the user has the required role to assign leads
-			List<Role> roles = loginService.getAllUserRoles(leadDTO.getUpdatedBy());
-			boolean isLevelOneUser = roles.stream().anyMatch(role -> role.getRole().equals(RoleEnum.LEVEL_1.getRole()));
-
-			if (isLevelOneUser) {
-				// Fetch the branch of the user by createdBy ID
-				String branch = userDao.getUserBranchByCreatedBy(leadDTO.getUpdatedBy());
-
-				// Fetch all active user IDs for the new location and branch
-				List<String> userIds = userDao.getUserIdsByLocationAndBranch(leadDTO.getLocation(), branch);
-
-				if (!userIds.isEmpty()) {
-					// Get the next user ID for this location using a round-robin approach
-					String nextUserId = getNextUserIdForLocation(leadDTO.getLocation(), userIds);
-
-					// Assign the lead to the next user ID
-					dbLeadDTO.setAssignedTo(nextUserId);
-				}
-			}
-		}
+//		if (leadDTO.getLocation() != null && !leadDTO.getLocation().equals(lead.getLocation())) {
+//			dbLeadDTO.setLocation(leadDTO.getLocation());
+//
+//			// Check if the user has the required role to assign leads
+//			List<Role> roles = loginService.getAllUserRoles(leadDTO.getUpdatedBy());
+//			boolean isLevelOneUser = roles.stream().anyMatch(role -> role.getRole().equals(RoleEnum.LEVEL_1.getRole()));
+//
+//			if (isLevelOneUser) {
+//				// Fetch the branch of the user by createdBy ID
+//				String branch = userDao.getUserBranchByCreatedBy(leadDTO.getUpdatedBy());
+//
+//				// Fetch all active user IDs for the new location and branch
+//				List<String> userIds = userDao.getUserIdsByLocationAndBranch(leadDTO.getLocation(), branch);
+//
+//				if (!userIds.isEmpty()) {
+//					// Get the next user ID for this location using a round-robin approach
+//					String nextUserId = getNextUserIdForLocation(leadDTO.getLocation(), userIds);
+//
+//					// Assign the lead to the next user ID
+//					dbLeadDTO.setAssignedTo(nextUserId);
+//				}
+//			}
+//		}
 
 		if (null != leadDTO.getApartmentType())
 			dbLeadDTO.setApartmentType(leadDTO.getApartmentType());
@@ -225,7 +229,7 @@ public class LeadServiceImpl implements LeadService {
 
 		if (null != leadDTO.getLeadStatus()) {
 			dbLeadDTO.setLeadStatus(leadDTO.getLeadStatus());
-			updateLeadStatus(leadDTO);
+//			updateLeadStatus(leadDTO);
 		}
 
 		if (null != leadDTO.getDataCollector())
@@ -339,12 +343,15 @@ public class LeadServiceImpl implements LeadService {
 			lookingFor = lookingFor.trim();
 
 			// Retrieve the user's branch
-			String branch = userDao.getUserBranchByCreatedBy(leadDTO.getUpdatedBy());
+//			String branch = userDao.getUserBranchByCreatedBy(leadDTO.getUpdatedBy());
+
+			String branch = "Ashwayana";
 
 			// Check if the college value indicates a special branch or office visit
 			if (lookingFor.equalsIgnoreCase("office visit")) {
 				// Handle the office visit case: assign to users from the user's branch
-				List<String> branchUserIds = userDao.getUserIdsByBranchAndAssignedAsset(branch, lookingFor);
+//				List<String> branchUserIds = userDao.getUserIdsByBranchAndAssignedAsset(branch, lookingFor);
+				List<String> branchUserIds = Arrays.asList("1");
 
 				if (!branchUserIds.isEmpty()) {
 					// Create and save an AssignedLeadDTO for each user in the branch
@@ -395,7 +402,9 @@ public class LeadServiceImpl implements LeadService {
 				}
 			} else {
 				// Handle the case for specific colleges
-				List<String> userIds = userDao.getUserIdsByAssignedAsset(lookingFor);
+				List<String> userIds = Arrays.asList("1");
+
+//				List<String> userIds = userDao.getUserIdsByAssignedAsset(lookingFor);
 
 				if (!userIds.isEmpty()) {
 					// Create and save an AssignedLeadDTO for each user associated with the college

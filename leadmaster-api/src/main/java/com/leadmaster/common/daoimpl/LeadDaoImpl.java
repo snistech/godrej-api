@@ -114,8 +114,8 @@ public class LeadDaoImpl implements LeadDao {
 		} else if (leadDTO.getStartDate() != null) {
 			sqlQuery.append(" AND DATE(a.updated_date) = :startDate");
 		}
-		if (leadDTO.getBranch() != null)
-			sqlQuery.append(" AND u.branch = :branch");
+//		if (leadDTO.getBranch() != null)
+//			sqlQuery.append(" AND u.branch = :branch");
 
 		sqlQuery.append(" ORDER BY a.id ASC");
 
@@ -170,8 +170,8 @@ public class LeadDaoImpl implements LeadDao {
 		} else if (leadDTO.getStartDate() != null) {
 			query.setParameter("startDate", leadDTO.getStartDate());
 		}
-		if (leadDTO.getBranch() != null)
-			query.setParameter("branch", leadDTO.getBranch());
+//		if (leadDTO.getBranch() != null)
+//			query.setParameter("branch", leadDTO.getBranch());
 
 		// Apply pagination
 		query.setFirstResult(leadDTO.getOffset());
@@ -286,8 +286,8 @@ public class LeadDaoImpl implements LeadDao {
 		} else if (leadDTO.getStartDate() != null) {
 			sqlQuery.append(" AND DATE(a.updated_date) = :startDate");
 		}
-		if (leadDTO.getBranch() != null)
-			sqlQuery.append(" AND u.branch = :branch");
+//		if (leadDTO.getBranch() != null)
+//			sqlQuery.append(" AND u.branch = :branch");
 
 		Query query = entityManager.createNativeQuery(sqlQuery.toString());
 
@@ -341,8 +341,8 @@ public class LeadDaoImpl implements LeadDao {
 		} else if (leadDTO.getStartDate() != null) {
 			query.setParameter("startDate", leadDTO.getStartDate());
 		}
-		if (leadDTO.getBranch() != null)
-			query.setParameter("branch", leadDTO.getBranch());
+//		if (leadDTO.getBranch() != null)
+//			query.setParameter("branch", leadDTO.getBranch());
 
 		Object result = query.getSingleResult();
 

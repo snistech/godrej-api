@@ -9,9 +9,7 @@ public class UserDTO {
 	private String password;
 	private String name;
 	private String phoneNumber;
-	private String leadLocation;
-	private String branch;
-	private String assignedAsset;
+	private Long teamLead;
 	private String activeStatus;
 	private String status;
 	private Long createdBy;
@@ -59,30 +57,6 @@ public class UserDTO {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getLeadLocation() {
-		return leadLocation;
-	}
-
-	public void setLeadLocation(String leadLocation) {
-		this.leadLocation = leadLocation;
-	}
-
-	public String getBranch() {
-		return branch;
-	}
-
-	public void setBranch(String branch) {
-		this.branch = branch;
-	}
-
-	public String getAssignedAsset() {
-		return assignedAsset;
-	}
-
-	public void setAssignedAsset(String assignedAsset) {
-		this.assignedAsset = assignedAsset;
 	}
 
 	public String getActiveStatus() {
@@ -139,6 +113,14 @@ public class UserDTO {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+
+	public Long getTeamLead() {
+		return teamLead;
+	}
+
+	public void setTeamLead(Long teamLead) {
+		this.teamLead = teamLead;
 	}
 
 }

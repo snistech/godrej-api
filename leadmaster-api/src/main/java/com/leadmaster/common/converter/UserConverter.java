@@ -23,9 +23,7 @@ public class UserConverter {
 		user.setPassword(userDTO.getPassword());
 		user.setName(userDTO.getName());
 		user.setPhoneNumber(userDTO.getPhoneNumber());
-		user.setLeadLocation(userDTO.getLeadLocation());
-		user.setBranch(userDTO.getBranch());
-		user.setAssignedAsset(userDTO.getAssignedAsset());
+		user.setTeamLead(userDTO.getTeamLead());
 		user.setActiveStatus(userDTO.getActiveStatus());
 		user.setStatus(userDTO.getStatus());
 		user.setCreatedDate(userDTO.getCreatedDate());
@@ -50,9 +48,7 @@ public class UserConverter {
 		dto.setPassword(user.getPassword());
 		dto.setName(user.getName());
 		dto.setPhoneNumber(user.getPhoneNumber());
-		dto.setLeadLocation(user.getLeadLocation());
-		dto.setBranch(user.getBranch());
-		dto.setAssignedAsset(user.getAssignedAsset());
+		dto.setTeamLead(user.getTeamLead());
 		dto.setActiveStatus(user.getActiveStatus());
 		dto.setStatus(user.getStatus());
 		dto.setCreatedDate(user.getCreatedDate());

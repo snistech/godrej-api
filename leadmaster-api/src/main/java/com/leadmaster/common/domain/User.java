@@ -22,14 +22,8 @@ public class User extends AbstractEntity {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@Column(name = "lead_location")
-	private String leadLocation;
-
-	@Column(name = "branch")
-	private String branch;
-
-	@Column(name = "assigned_asset")
-	private String assignedAsset;
+	@Column(name = "team_lead")
+	private Long teamLead;
 
 	@Column(name = "active_status")
 	private String activeStatus;
@@ -81,28 +75,12 @@ public class User extends AbstractEntity {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getLeadLocation() {
-		return leadLocation;
+	public Long getTeamLead() {
+		return teamLead;
 	}
 
-	public void setLeadLocation(String leadLocation) {
-		this.leadLocation = leadLocation;
-	}
-
-	public String getBranch() {
-		return branch;
-	}
-
-	public void setBranch(String branch) {
-		this.branch = branch;
-	}
-
-	public String getAssignedAsset() {
-		return assignedAsset;
-	}
-
-	public void setAssignedAsset(String assignedAsset) {
-		this.assignedAsset = assignedAsset;
+	public void setTeamLead(Long teamLead) {
+		this.teamLead = teamLead;
 	}
 
 	public String getActiveStatus() {

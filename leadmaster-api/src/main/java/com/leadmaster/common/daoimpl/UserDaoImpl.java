@@ -49,12 +49,8 @@ public class UserDaoImpl implements UserDao {
 			sqlQuery.append(" AND a.status = :status");
 		if (null != usersDTO.getEmail())
 			sqlQuery.append(" AND a.email = :email");
-		if (null != usersDTO.getLeadLocation())
-			sqlQuery.append(" AND a.lead_location = :leadLocation");
-		if (null != usersDTO.getBranch())
-			sqlQuery.append(" AND a.branch = :branch");
-		if (null != usersDTO.getAssignedAsset())
-			sqlQuery.append(" AND a.assigned_asset = :assignedAsset");
+		if (null != usersDTO.getTeamLead())
+			sqlQuery.append(" AND a.team_lead = :teamLead");
 		if (null != usersDTO.getActiveStatus())
 			sqlQuery.append(" AND a.activeStatus = :activeStatus");
 
@@ -67,12 +63,8 @@ public class UserDaoImpl implements UserDao {
 			query.setParameter("status", usersDTO.getStatus());
 		if (null != usersDTO.getEmail())
 			query.setParameter("email", usersDTO.getEmail());
-		if (null != usersDTO.getLeadLocation())
-			query.setParameter("leadLocation", usersDTO.getLeadLocation());
-		if (null != usersDTO.getBranch())
-			query.setParameter("branch", usersDTO.getBranch());
-		if (null != usersDTO.getAssignedAsset())
-			query.setParameter("assignedAsset", usersDTO.getAssignedAsset());
+		if (null != usersDTO.getTeamLead())
+			query.setParameter("teamLead", usersDTO.getTeamLead());
 		if (null != usersDTO.getActiveStatus())
 			query.setParameter("activeStatus", usersDTO.getActiveStatus());
 
@@ -97,25 +89,25 @@ public class UserDaoImpl implements UserDao {
 		return userRepository.getUserByEmail(email);
 	}
 
-	@Override
-	public List<String> getUserIdsByLocationAndBranch(String location, String branch) {
-		return userRepository.findUserIdsByLocationAndBranch(location, branch);
-	}
+//	@Override
+//	public List<String> getUserIdsByLocationAndBranch(String location, String branch) {
+//		return userRepository.findUserIdsByLocationAndBranch(location, branch);
+//	}
 
-	@Override
-	public String getUserBranchByCreatedBy(Long createdBy) {
-		return userRepository.findUserBranchByCreatedBy(createdBy);
-	}
+//	@Override
+//	public String getUserBranchByCreatedBy(Long createdBy) {
+//		return userRepository.findUserBranchByCreatedBy(createdBy);
+//	}
 
-	@Override
-	public List<String> getUserIdsByAssignedAsset(String assignedAsset) {
-		return userRepository.getUserIdsByAssignedAsset(assignedAsset);
-	}
+//	@Override
+//	public List<String> getUserIdsByAssignedAsset(String assignedAsset) {
+//		return userRepository.getUserIdsByAssignedAsset(assignedAsset);
+//	}
 
-	@Override
-	public List<String> getUserIdsByBranchAndAssignedAsset(String branch, String assignedAsset) {
-		return userRepository.getUserIdsByBranchAndAssignedAsset(branch, assignedAsset);
-	}
+//	@Override
+//	public List<String> getUserIdsByBranchAndAssignedAsset(String branch, String assignedAsset) {
+//		return userRepository.getUserIdsByBranchAndAssignedAsset(branch, assignedAsset);
+//	}
 
 	@Override
 	public User getUserByPhoneNumber(String phoneNumber) {

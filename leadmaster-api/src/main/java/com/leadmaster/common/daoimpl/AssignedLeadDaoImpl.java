@@ -123,8 +123,8 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 		} else if (assignedLeadDTO.getStartDate() != null) {
 			sqlQuery.append(" AND DATE(a.updated_date) = :startDate");
 		}
-		if (assignedLeadDTO.getBranch() != null)
-			sqlQuery.append(" AND u.branch = :branch");
+//		if (assignedLeadDTO.getBranch() != null)
+//			sqlQuery.append(" AND u.branch = :branch");
 		if (assignedLeadDTO.getSuggestedPlot() != null)
 			sqlQuery.append(" AND a.suggested_plot = :suggestedPlot");
 
@@ -182,8 +182,8 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 		} else if (assignedLeadDTO.getStartDate() != null) {
 			query.setParameter("startDate", assignedLeadDTO.getStartDate());
 		}
-		if (assignedLeadDTO.getBranch() != null)
-			query.setParameter("branch", assignedLeadDTO.getBranch());
+//		if (assignedLeadDTO.getBranch() != null)
+//			query.setParameter("branch", assignedLeadDTO.getBranch());
 		if (assignedLeadDTO.getSuggestedPlot() != null)
 			query.setParameter("suggestedPlot", assignedLeadDTO.getSuggestedPlot());
 
@@ -307,8 +307,8 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 		} else if (assignedLeadDTO.getStartDate() != null) {
 			sqlQuery.append(" AND DATE(a.created_date) = :startDate");
 		}
-		if (assignedLeadDTO.getBranch() != null)
-			sqlQuery.append(" AND u.branch = :branch");
+//		if (assignedLeadDTO.getBranch() != null)
+//			sqlQuery.append(" AND u.branch = :branch");
 		if (assignedLeadDTO.getLeadSource() != null)
 			sqlQuery.append(" AND u.lead_source = :leadSource");
 		if (assignedLeadDTO.getLeadFlag() != null)
@@ -361,8 +361,8 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 		} else if (assignedLeadDTO.getStartDate() != null) {
 			query.setParameter("startDate", assignedLeadDTO.getStartDate());
 		}
-		if (assignedLeadDTO.getBranch() != null)
-			query.setParameter("branch", assignedLeadDTO.getBranch());
+//		if (assignedLeadDTO.getBranch() != null)
+//			query.setParameter("branch", assignedLeadDTO.getBranch());
 		if (assignedLeadDTO.getLeadSource() != null)
 			query.setParameter("leadSource", assignedLeadDTO.getLeadSource());
 		if (assignedLeadDTO.getLeadFlag() != null)

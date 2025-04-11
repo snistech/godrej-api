@@ -54,6 +54,9 @@ public class UserValidator implements Validator {
 		if (!CustomValidator.isValidPattern(MOBILE_PATTERN, userDTO.getPhoneNumber()))
 			errors.rejectValue("phoneNumber", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
 
+		if (!CustomValidator.isValidPattern(PASSWORD_PATTERN, userDTO.getPassword()))
+			errors.rejectValue("password", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
+
 //		if (CustomValidator.isEmpty(userDTO.getBranch()))
 //			errors.rejectValue("branch", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
 
@@ -114,8 +117,8 @@ public class UserValidator implements Validator {
 		if (null != userDTO.getStatus() && !VALID_UPDATE_STATUS.contains(userDTO.getStatus()))
 			errors.rejectValue("status", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
 
-		if (null != userDTO.getLeadLocation() && CustomValidator.isEmpty(userDTO.getLeadLocation()))
-			errors.rejectValue("leadLocation", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
+		if (null != userDTO.getTeamLead() && CustomValidator.isEmpty(userDTO.getTeamLead()))
+			errors.rejectValue("teamLead", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
 
 		userDTO.setUpdatedDate(createdTime);
 		userDTO.setUpdatedBy(logedUserid);

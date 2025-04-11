@@ -33,9 +33,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				.append("JOIN users u ON l.assigned_to = u.id ")
 				.append("WHERE l.lead_status IN ('Purchased', 'Finalized', 'Visiting', 'Hot', 'Warm', 'Cold')");
 
-		if (analyticsDTO.getBranch() != null) {
-			sqlQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			sqlQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			sqlQuery.append(" AND l.assigned_to = :assignedTo");
@@ -61,9 +61,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		visitedLeadsQuery.append("SELECT 'Visited' AS lead_status, COUNT(v.id) AS count ")
 				.append("FROM visited_leads v ").append("JOIN users u ON v.created_by = u.id ").append("WHERE 1=1");
 
-		if (analyticsDTO.getBranch() != null) {
-			visitedLeadsQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			visitedLeadsQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			visitedLeadsQuery.append(" AND v.created_by = :assignedTo");
@@ -85,9 +85,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		Query query = entityManager.createNativeQuery(finalQuery);
 
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -120,9 +120,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				.append("JOIN users u ON l.assigned_to = u.id ")
 				.append("WHERE l.lead_status NOT IN ('Purchased', 'Finalized', 'Visiting', 'Visited', 'Assigned', 'Hot', 'Warm', 'Cold', 'Fresh')");
 
-		if (analyticsDTO.getBranch() != null) {
-			sqlQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			sqlQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			sqlQuery.append(" AND l.data_collector = :assignedTo");
@@ -140,9 +140,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		Query query = entityManager.createNativeQuery(sqlQuery.toString());
 
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -175,9 +175,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		overallQuery.append("SELECT COUNT(l.id) AS overallCount FROM leads l ")
 				.append("JOIN users u ON l.created_by = u.id WHERE 1=1");
 
-		if (analyticsDTO.getBranch() != null) {
-			overallQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			overallQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			overallQuery.append(" AND l.assigned_to = :assignedTo");
@@ -193,9 +193,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		Query overallCountQuery = entityManager.createNativeQuery(overallQuery.toString());
 
-		if (analyticsDTO.getBranch() != null) {
-			overallCountQuery.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			overallCountQuery.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			overallCountQuery.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -213,9 +213,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		freshLeadsQuery.append("SELECT COUNT(l.id) AS freshCount FROM leads l ")
 				.append("JOIN users u ON l.created_by = u.id WHERE l.lead_status = 'Fresh'");
 
-		if (analyticsDTO.getBranch() != null) {
-			freshLeadsQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			freshLeadsQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			freshLeadsQuery.append(" AND l.assigned_to = :assignedTo");
@@ -231,9 +231,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		Query freshCountQuery = entityManager.createNativeQuery(freshLeadsQuery.toString());
 
-		if (analyticsDTO.getBranch() != null) {
-			freshCountQuery.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			freshCountQuery.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			freshCountQuery.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -280,9 +280,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			}
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			callsQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			callsQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			callsQuery.append("AND lt.created_by = :assignedTo ");
@@ -298,9 +298,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -330,9 +330,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				.append("FROM assigned_leads l ").append("JOIN users u ON l.assigned_to = u.id ")
 				.append("WHERE l.lead_status = 'Purchased' AND l.finalized_status = 'Approved' ");
 
-		if (analyticsDTO.getBranch() != null) {
-			admissionsQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			admissionsQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			admissionsQuery.append("AND l.assigned_to = :assignedTo ");
@@ -342,9 +342,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		Query query = entityManager.createNativeQuery(admissionsQuery.toString());
 
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -383,9 +383,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			graphDataQuery.append("AND lt.created_date >= CURDATE() - INTERVAL 10 DAY ");
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			graphDataQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			graphDataQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			graphDataQuery.append("AND l.assigned_to = :assignedTo ");
@@ -401,9 +401,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -447,9 +447,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			graphDataQuery.append("AND lt.created_date >= CURDATE() - INTERVAL 10 DAY ");
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			graphDataQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			graphDataQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			graphDataQuery.append("AND l.assigned_to = :assignedTo ");
@@ -472,9 +472,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -523,9 +523,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			graphDataQuery.append("AND lt.created_date >= CURDATE() - INTERVAL 10 DAY ");
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			graphDataQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			graphDataQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			graphDataQuery.append("AND l.assigned_to = :assignedTo ");
@@ -546,9 +546,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -586,9 +586,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		sqlQuery.append("SELECT l.lead_flag, COUNT(l.id) AS count ").append("FROM assigned_leads l ")
 				.append("JOIN users u ON l.assigned_to = u.id ").append("WHERE l.lead_source = 'GetMyProperty'");
 
-		if (analyticsDTO.getBranch() != null) {
-			sqlQuery.append(" AND u.branch = :branch");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			sqlQuery.append(" AND u.branch = :branch");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			sqlQuery.append(" AND l.assigned_to = :assignedTo");
@@ -607,9 +607,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		// Create and configure the query
 		Query query = entityManager.createNativeQuery(sqlQuery.toString());
 
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -653,9 +653,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			}
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			callsQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			callsQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			callsQuery.append("AND al.assigned_to = :assignedTo ");
@@ -671,9 +671,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}
@@ -712,9 +712,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 			}
 		}
 
-		if (analyticsDTO.getBranch() != null) {
-			callsQuery.append("AND u.branch = :branch ");
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			callsQuery.append("AND u.branch = :branch ");
+//		}
 
 		if (analyticsDTO.getAssignedTo() != null) {
 			callsQuery.append("AND al.data_collector = :assignedTo ");
@@ -730,9 +730,9 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 				query.setParameter("endDate", analyticsDTO.getEndDate());
 			}
 		}
-		if (analyticsDTO.getBranch() != null) {
-			query.setParameter("branch", analyticsDTO.getBranch());
-		}
+//		if (analyticsDTO.getBranch() != null) {
+//			query.setParameter("branch", analyticsDTO.getBranch());
+//		}
 		if (analyticsDTO.getAssignedTo() != null) {
 			query.setParameter("assignedTo", analyticsDTO.getAssignedTo());
 		}

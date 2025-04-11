@@ -137,7 +137,7 @@ public class UserServiceImpl implements UserService {
 		String password = "LeadMaster@2024";
 
 		// Step 2:: save user with password encrypted
-		userDTO.setPassword(bCryptPasswordEncoder.encode(password));
+		userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
 		User user = userDao.saveUser(userDTO);
 		LOGGER.info("user added successfully with email::" + user.getEmail());
 
@@ -243,14 +243,8 @@ public class UserServiceImpl implements UserService {
 		if (null != userDTO.getPhoneNumber())
 			dbUserDTO.setPhoneNumber(userDTO.getPhoneNumber());
 
-		if (null != userDTO.getLeadLocation())
-			dbUserDTO.setLeadLocation(userDTO.getLeadLocation());
-
-		if (null != userDTO.getBranch())
-			dbUserDTO.setBranch(userDTO.getBranch());
-
-		if (null != userDTO.getAssignedAsset())
-			dbUserDTO.setAssignedAsset(userDTO.getAssignedAsset());
+		if (null != userDTO.getTeamLead())
+			dbUserDTO.setTeamLead(userDTO.getTeamLead());
 
 		if (null != userDTO.getActiveStatus())
 			dbUserDTO.setActiveStatus(userDTO.getActiveStatus());

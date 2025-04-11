@@ -15,13 +15,13 @@ public interface UserDao {
 
 	public User getUserByEmail(String email);
 
-	public List<String> getUserIdsByLocationAndBranch(String location, String branch);
+//	public List<String> getUserIdsByLocationAndBranch(String location, String branch);
 
-	public String getUserBranchByCreatedBy(Long createdBy);
+//	public String getUserBranchByCreatedBy(Long createdBy);
 
-	public List<String> getUserIdsByAssignedAsset(String college);
+//	public List<String> getUserIdsByAssignedAsset(String college);
 
-	public List<String> getUserIdsByBranchAndAssignedAsset(String branch, String college);
+//	public List<String> getUserIdsByBranchAndAssignedAsset(String branch, String college);
 
 	public User getUserByPhoneNumber(String phoneNumber);
 }
