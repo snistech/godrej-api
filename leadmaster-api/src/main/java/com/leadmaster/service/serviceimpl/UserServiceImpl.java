@@ -246,6 +246,9 @@ public class UserServiceImpl implements UserService {
 		if (null != userDTO.getTeamLead())
 			dbUserDTO.setTeamLead(userDTO.getTeamLead());
 
+		if (null != userDTO.getMarketingExecutive())
+			dbUserDTO.setMarketingExecutive(userDTO.getMarketingExecutive());
+
 		if (null != userDTO.getActiveStatus())
 			dbUserDTO.setActiveStatus(userDTO.getActiveStatus());
 

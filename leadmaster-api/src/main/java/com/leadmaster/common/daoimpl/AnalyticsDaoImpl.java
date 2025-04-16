@@ -211,7 +211,7 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		// Query to get count of fresh leads
 		StringBuilder freshLeadsQuery = new StringBuilder();
 		freshLeadsQuery.append("SELECT COUNT(l.id) AS freshCount FROM leads l ")
-				.append("JOIN users u ON l.created_by = u.id WHERE l.lead_status = 'Fresh'");
+				.append("JOIN users u ON l.created_by = u.id WHERE l.lead_status = 'Assigned'");
 
 //		if (analyticsDTO.getBranch() != null) {
 //			freshLeadsQuery.append(" AND u.branch = :branch");

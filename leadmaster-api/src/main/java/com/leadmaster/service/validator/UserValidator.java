@@ -120,6 +120,9 @@ public class UserValidator implements Validator {
 		if (null != userDTO.getTeamLead() && CustomValidator.isEmpty(userDTO.getTeamLead()))
 			errors.rejectValue("teamLead", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
 
+		if (null != userDTO.getMarketingExecutive() && CustomValidator.isEmpty(userDTO.getMarketingExecutive()))
+			errors.rejectValue("marketingExecutive", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
+
 		userDTO.setUpdatedDate(createdTime);
 		userDTO.setUpdatedBy(logedUserid);
 

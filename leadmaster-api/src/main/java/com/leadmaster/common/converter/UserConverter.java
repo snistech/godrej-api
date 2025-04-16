@@ -24,6 +24,7 @@ public class UserConverter {
 		user.setName(userDTO.getName());
 		user.setPhoneNumber(userDTO.getPhoneNumber());
 		user.setTeamLead(userDTO.getTeamLead());
+		user.setMarketingExecutive(userDTO.getMarketingExecutive());
 		user.setActiveStatus(userDTO.getActiveStatus());
 		user.setStatus(userDTO.getStatus());
 		user.setCreatedDate(userDTO.getCreatedDate());
@@ -49,6 +50,7 @@ public class UserConverter {
 		dto.setName(user.getName());
 		dto.setPhoneNumber(user.getPhoneNumber());
 		dto.setTeamLead(user.getTeamLead());
+		dto.setMarketingExecutive(user.getMarketingExecutive());
 		dto.setActiveStatus(user.getActiveStatus());
 		dto.setStatus(user.getStatus());
 		dto.setCreatedDate(user.getCreatedDate());

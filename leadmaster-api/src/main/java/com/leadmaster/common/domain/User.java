@@ -25,6 +25,9 @@ public class User extends AbstractEntity {
 	@Column(name = "team_lead")
 	private Long teamLead;
 
+	@Column(name = "marketing_executive")
+	private Long marketingExecutive;
+
 	@Column(name = "active_status")
 	private String activeStatus;
 
@@ -129,6 +132,14 @@ public class User extends AbstractEntity {
 
 	public void setUpdatedBy(Long updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+
+	public Long getMarketingExecutive() {
+		return marketingExecutive;
+	}
+
+	public void setMarketingExecutive(Long marketingExecutive) {
+		this.marketingExecutive = marketingExecutive;
 	}
 
 }

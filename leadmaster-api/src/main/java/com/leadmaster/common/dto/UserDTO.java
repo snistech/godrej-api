@@ -10,6 +10,7 @@ public class UserDTO {
 	private String name;
 	private String phoneNumber;
 	private Long teamLead;
+	private Long marketingExecutive;
 	private String activeStatus;
 	private String status;
 	private Long createdBy;
@@ -121,6 +122,14 @@ public class UserDTO {
 
 	public void setTeamLead(Long teamLead) {
 		this.teamLead = teamLead;
+	}
+
+	public Long getMarketingExecutive() {
+		return marketingExecutive;
+	}
+
+	public void setMarketingExecutive(Long marketingExecutive) {
+		this.marketingExecutive = marketingExecutive;
 	}
 
 }
