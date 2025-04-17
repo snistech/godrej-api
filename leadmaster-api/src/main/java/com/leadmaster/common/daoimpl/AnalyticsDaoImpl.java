@@ -116,7 +116,7 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 		List<Map<String, Object>> returnList = new ArrayList<>();
 
 		StringBuilder sqlQuery = new StringBuilder();
-		sqlQuery.append("SELECT l.lead_status, COUNT(l.id) AS count ").append("FROM leads l ")
+		sqlQuery.append("SELECT l.lead_status, COUNT(l.id) AS count ").append("FROM assigned_leads l ")
 				.append("JOIN users u ON l.assigned_to = u.id ")
 				.append("WHERE l.lead_status NOT IN ('Purchased', 'Finalized', 'Visiting', 'Visited', 'Assigned', 'Hot', 'Warm', 'Cold', 'Fresh')");
 
@@ -172,7 +172,7 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		// Query to get overall count of leads
 		StringBuilder overallQuery = new StringBuilder();
-		overallQuery.append("SELECT COUNT(l.id) AS overallCount FROM leads l ")
+		overallQuery.append("SELECT COUNT(l.id) AS overallCount FROM assigned_leads l ")
 				.append("JOIN users u ON l.created_by = u.id WHERE 1=1");
 
 //		if (analyticsDTO.getBranch() != null) {
@@ -210,7 +210,7 @@ public class AnalyticsDaoImpl implements AnalyticsDao {
 
 		// Query to get count of fresh leads
 		StringBuilder freshLeadsQuery = new StringBuilder();
-		freshLeadsQuery.append("SELECT COUNT(l.id) AS freshCount FROM leads l ")
+		freshLeadsQuery.append("SELECT COUNT(l.id) AS freshCount FROM assigned_leads l ")
 				.append("JOIN users u ON l.created_by = u.id WHERE l.lead_status = 'Assigned'");
 
 //		if (analyticsDTO.getBranch() != null) {
