@@ -283,7 +283,7 @@ public class UserServiceImpl implements UserService {
 	public void changePassword(UserDTO userDTO) {
 
 		// Step 1:Get user details
-		User dbUser = userDao.getUserById(userDTO.getUpdatedBy());
+		User dbUser = userDao.getUserById(userDTO.getId());
 		UserDTO dbUserDTO = UserConverter.getUserDTOByUser(dbUser);
 
 		dbUserDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));

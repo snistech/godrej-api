@@ -187,6 +187,9 @@ public class UserValidator implements Validator {
 		String createdDate = DateUtils.getAsiaLocalDateTimeInCustomFormat();
 		Long logedUserid = userUtils.getLogedInUser();
 
+		if (CustomValidator.isEmpty(userDTO.getId()))
+			errors.rejectValue("id", BAD_REQUEST_ERROR_CD, "is an empty or not in valid format");
+
 		if (CustomValidator.isEmpty(userDTO.getPassword()))
 			errors.rejectValue("password", BAD_REQUEST_ERROR_CD,
 					" should contain atleast 8 chars with one lowerCase, upperCase, special char and number ");
