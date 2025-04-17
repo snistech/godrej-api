@@ -127,6 +127,10 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 //			sqlQuery.append(" AND u.branch = :branch");
 		if (assignedLeadDTO.getSuggestedPlot() != null)
 			sqlQuery.append(" AND a.suggested_plot = :suggestedPlot");
+		if (assignedLeadDTO.getTeamLead() != null)
+			sqlQuery.append(" AND u.team_lead = :teamLead");
+		if (assignedLeadDTO.getMarketingExecutive() != null)
+			sqlQuery.append(" AND u.marketing_executive = :marketingExecutive");
 
 		sqlQuery.append(" ORDER BY a.id DESC");
 
@@ -186,6 +190,10 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 //			query.setParameter("branch", assignedLeadDTO.getBranch());
 		if (assignedLeadDTO.getSuggestedPlot() != null)
 			query.setParameter("suggestedPlot", assignedLeadDTO.getSuggestedPlot());
+		if (assignedLeadDTO.getTeamLead() != null)
+			query.setParameter("teamLead", assignedLeadDTO.getTeamLead());
+		if (assignedLeadDTO.getMarketingExecutive() != null)
+			query.setParameter("marketingExecutive", assignedLeadDTO.getMarketingExecutive());
 
 		// Apply pagination
 		query.setFirstResult(assignedLeadDTO.getOffset());

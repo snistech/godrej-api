@@ -30,6 +30,9 @@ public class VisitedLeadsDTO {
 	private String subLocation;
 	private String leadStatus;
 
+	private Long teamLead;
+	private Long marketingExecutive;
+
 	public Long getId() {
 		return id;
 	}
@@ -204,6 +207,22 @@ public class VisitedLeadsDTO {
 
 	public void setLeadStatus(String leadStatus) {
 		this.leadStatus = leadStatus;
+	}
+
+	public Long getTeamLead() {
+		return teamLead;
+	}
+
+	public void setTeamLead(Long teamLead) {
+		this.teamLead = teamLead;
+	}
+
+	public Long getMarketingExecutive() {
+		return marketingExecutive;
+	}
+
+	public void setMarketingExecutive(Long marketingExecutive) {
+		this.marketingExecutive = marketingExecutive;
 	}
 
 }

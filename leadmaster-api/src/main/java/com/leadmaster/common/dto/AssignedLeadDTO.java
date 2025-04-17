@@ -50,6 +50,9 @@ public class AssignedLeadDTO {
 
 	private String branch;
 
+	private Long teamLead;
+	private Long marketingExecutive;
+
 	public Long getId() {
 		return id;
 	}
@@ -392,6 +395,22 @@ public class AssignedLeadDTO {
 
 	public void setPossession(String possession) {
 		this.possession = possession;
+	}
+
+	public Long getTeamLead() {
+		return teamLead;
+	}
+
+	public void setTeamLead(Long teamLead) {
+		this.teamLead = teamLead;
+	}
+
+	public Long getMarketingExecutive() {
+		return marketingExecutive;
+	}
+
+	public void setMarketingExecutive(Long marketingExecutive) {
+		this.marketingExecutive = marketingExecutive;
 	}
 
 }

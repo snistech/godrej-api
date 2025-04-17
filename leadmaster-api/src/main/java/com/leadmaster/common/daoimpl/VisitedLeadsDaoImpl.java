@@ -67,10 +67,14 @@ public class VisitedLeadsDaoImpl implements VisitedLeadsDao {
 			sqlQuery.append(" AND a.visited_date = :visitedDate");
 		if (visitedLeadsDTO.getCreatedBy() != null)
 			sqlQuery.append(" AND a.created_by = :createdBy");
-		if (visitedLeadsDTO.getBranch() != null)
-			sqlQuery.append(" AND u.branch = :branch");
+//		if (visitedLeadsDTO.getBranch() != null)
+//			sqlQuery.append(" AND u.branch = :branch");
 		if (visitedLeadsDTO.getBranch() != null)
 			sqlQuery.append(" AND b.assigned_to = :assignedTo");
+		if (visitedLeadsDTO.getTeamLead() != null)
+			sqlQuery.append(" AND u.team_lead = :teamLead");
+		if (visitedLeadsDTO.getMarketingExecutive() != null)
+			sqlQuery.append(" AND u.marketing_executive = :marketingExecutive");
 
 		sqlQuery.append(" ORDER BY a.id DESC");
 
@@ -96,10 +100,14 @@ public class VisitedLeadsDaoImpl implements VisitedLeadsDao {
 		}
 		if (visitedLeadsDTO.getCreatedBy() != null)
 			query.setParameter("createdBy", visitedLeadsDTO.getCreatedBy());
-		if (visitedLeadsDTO.getBranch() != null)
-			query.setParameter("branch", visitedLeadsDTO.getBranch());
+//		if (visitedLeadsDTO.getBranch() != null)
+//			query.setParameter("branch", visitedLeadsDTO.getBranch());
 		if (visitedLeadsDTO.getAssignedTo() != null)
 			query.setParameter("assignedTo", visitedLeadsDTO.getAssignedTo());
+		if (visitedLeadsDTO.getTeamLead() != null)
+			query.setParameter("teamLead", visitedLeadsDTO.getTeamLead());
+		if (visitedLeadsDTO.getMarketingExecutive() != null)
+			query.setParameter("marketingExecutive", visitedLeadsDTO.getMarketingExecutive());
 
 		query.setFirstResult(visitedLeadsDTO.getOffset());
 		query.setMaxResults(visitedLeadsDTO.getLimit());
