@@ -322,7 +322,7 @@ public class AssignedLeadDaoImpl implements AssignedLeadDao {
 		if (assignedLeadDTO.getLeadFlag() != null)
 			sqlQuery.append(" AND u.lead_flag = :leadFlag");
 
-		sqlQuery.append(" GROUP BY a.lead_id ORDER BY a.lead_id ASC");
+		sqlQuery.append(" GROUP BY a.id, a.lead_id, a.full_name, a.phone_number, a.lead_status ORDER BY a.lead_id ASC");
 
 		Query query = entityManager.createNativeQuery(sqlQuery.toString());
 
